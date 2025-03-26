@@ -12,7 +12,7 @@ function Index() {
         currentType={currentType}
         onTypeChange={setCurrentType}
       />
-      <EnergySection />
+      <EnergySection currentType={currentType} />
     </div>
   );
 }

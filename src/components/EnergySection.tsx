@@ -6,10 +6,13 @@ import EnergyTips from './EnergyTips';
 import HistoryView from './HistoryView';
 import { useEnergyData } from '../hooks/useEnergyData';
 
-const EnergySection = () => {
+interface EnergySectionProps {
+  currentType: 'home' | 'vehicle';
+}
+
+const EnergySection = ({ currentType }: EnergySectionProps) => {
   const {
     energyData,
-    currentType,
     setCurrentType,
     currentConsumption,
     setCurrentConsumption,
@@ -18,6 +21,11 @@ const EnergySection = () => {
     saveCurrentData,
     clearAllData
   } = useEnergyData();
+
+  // Update the useEnergyData hook with the currentType from props
+  React.useEffect(() => {
+    setCurrentType(currentType);
+  }, [currentType, setCurrentType]);
 
   const handleSave = () => {
     saveCurrentData();
