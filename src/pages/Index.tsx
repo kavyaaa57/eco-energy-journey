@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import EnergySection from '../components/EnergySection';
 
-const Index = () => {
+function Index() {
   const [currentType, setCurrentType] = useState<'home' | 'vehicle'>('home');
 
   return (
@@ -15,6 +15,6 @@ const Index = () => {
       <EnergySection />
     </div>
   );
-};
+}
 
 export default Index;
